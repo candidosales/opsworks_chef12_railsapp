@@ -10,7 +10,7 @@ node[:deploy].each do |application, deploy|
     next
   end
 
-  case node[:rails_stack][:name]
+  case node[:opsworks][:rails_stack][:name]
   when 'apache_passenger'
     if node[:opsworks][:rails_stack][:service]
       include_recipe "#{node[:opsworks][:rails_stack][:service]}::service"

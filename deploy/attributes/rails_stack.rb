@@ -14,8 +14,8 @@
 # See also: http://docs.aws.amazon.com/opsworks/latest/userguide/customizing.html
 ###
 
-default[:rails_stack][:name] = "nginx_unicorn"
-normal[:opsworks][:rails_stack][:name] = node[:rails_stack][:name]
+layer_name = search('aws_opsworks_layer').first['shortname']
+normal[:opsworks][:rails_stack][:name] = node[:rails_stack][layer_name][:name] || 'nginx_unicorn'
 
 # Chef::Log.info("********** rails stack name is '#{node[:opsworks][:rails_stack][:name]}' **********")
 # Chef::Log.info("********** rails stack name is '#{default[:rails_stack][:name]}' **********")
