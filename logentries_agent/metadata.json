@@ -1,0 +1,49 @@
+{
+  "name": "logentries_agent",
+  "description": "Installs and configures the logentries agent",
+  "long_description": "Installs the Logentries python agent and configures it to follow logs specified in a JSON object",
+  "maintainer": "Logentries",
+  "maintainer_email": "support@logentries.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "ubuntu": ">= 0.0.0",
+    "rhel": ">= 0.0.0"
+  },
+  "dependencies": {
+    "apt": ">= 0.0.0",
+    "yum": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+    "java": "~> 1.22"
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "logentries_agent::default": "Downloads the agent and sets up logging",
+    "logentries_agent::install": "Download and install the agent from le repo",
+    "logentries_agent::configure": "Register and le start agent, follow files"
+  },
+  "version": "0.2.6",
+  "source_url": "https://github.com/logentries/le_chef",
+  "issues_url": "https://github.com/logentries/le_chef/issues",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

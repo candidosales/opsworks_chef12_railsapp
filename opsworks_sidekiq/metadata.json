@@ -1,0 +1,47 @@
+{
+  "name": "opsworks_sidekiq",
+  "description": "Configure and deploy sidekiq on opsworks.",
+  "long_description": "",
+  "maintainer": "Draker",
+  "maintainer_email": "devops@drakerenergy.com",
+  "license": "MIT",
+  "platforms": {
+  },
+  "dependencies": {
+    "deploy": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "opsworks_sidekiq::setup": "Set up sidekiq worker.",
+    "opsworks_sidekiq::configure": "Configure sidekiq worker.",
+    "opsworks_sidekiq::deploy": "Deploy sidekiq worker.",
+    "opsworks_sidekiq::undeploy": "Undeploy sidekiq worker.",
+    "opsworks_sidekiq::stop": "Stop sidekiq worker."
+  },
+  "version": "0.0.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

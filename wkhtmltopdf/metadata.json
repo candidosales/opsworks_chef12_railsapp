@@ -1,0 +1,52 @@
+{
+  "name": "wkhtmltopdf",
+  "description": "Installs wkhtmltoimage and wkhtmltopdf",
+  "long_description": "# chef-wkhtmltopdf [![Build Status](https://secure.travis-ci.org/bflad/chef-wkhtmltopdf.png?branch=master)](http://travis-ci.org/bflad/chef-wkhtmltopdf)\n\n## Description\n\nInstalls [wkhtmltopdf](http://wkhtmltopdf.org) static binaries. This cookbook is inspired by https://github.com/firstbanco/chef-wkhtmltopdf.\n\nCookbook Compatibility:\n * chef-wkhtmltopdf 0.1.0: wkhtmltopdf 0.11.0_rc1\n * chef-wkhtmltopdf 0.2.0: wkhtmltopdf 0.12.0\n * chef-wkhtmltopdf 0.3.0: wkhtmltopdf 0.12.1\n\n## Requirements\n\n### Platforms\n\n* CentOS 6\n* RedHat 6\n* Ubuntu 12.04\n* Ubuntu 14.04\n\n### Cookbooks\n\n[Opscode Cookbooks](https://github.com/opscode-cookbooks/)\n\n* [apt](https://github.com/opscode-cookbooks/apt)\n\n## Attributes\n\nThese attributes are under the `node['wkhtmltopdf']` namespace.\n\nAttribute | Description | Type | Default\n----------|-------------|------|--------\narchive | wkhtmltopdf archive name | String | `wkhtmltox-#{node['wkhtmltopdf']['version']}_#{node['wkhtmltopdf']['platform']}-#{node['wkhtmltopdf']['architecture']}.#{node['wkhtmltopdf']['suffix']}`\ndependency_packages | Packages that contain wkhtmltopdf dependencies | String | (auto-detected, see attributes/default.rb)\ninstall_dir | directory to install with source | String | /usr/local/bin\nlib_dir | directory to install libraries | String | ''\nmirror_url | URL for wkhtmltopdf | String | (auto-detected, see attributes/default.rb)\nsuffix | wkhtmltopdf suffix | String | (auto-detected, see attributes/default.rb)\nplatform | wkhtmltopdf platform | String | (auto-detected, see attributes/default.rb)\narchitecture | wkhtmltopdf architecture | String | (auto-detected, see attributes/default.rb)\nversion | wkhtmltopdf version to install | String | 0.12.1\n\n## Recipes\n\n* `recipe[wkhtmltopdf]` Installs wkhtmltoimage and wkhtmltopdf\n* `recipe[wkhtmltopdf::binary]` Installs wkhtmltoimage and wkhtmltopdf static binaries\n* `recipe[wkhtmltopdf::source]` Installs wkhtmltoimage and wkhtmltopdf from source\n\n## Usage\n\n* Add recipe(s) to node's run list\n\n## Testing and Development\n\nHere's how you can quickly get testing or developing against the cookbook thanks to [Vagrant](http://vagrantup.com/) and [Berkshelf](http://berkshelf.com/).\n\n    vagrant plugin install vagrant-berkshelf\n    vagrant plugin install vagrant-cachier\n    vagrant plugin install vagrant-omnibus\n    git clone git://github.com/bflad/chef-wkhtmltopdf.git\n    cd chef-wkhtmltopdf\n    vagrant up BOX # BOX being centos5, centos6, debian7, fedora18, fedora19, fedora20, freebsd9, ubuntu1204, ubuntu1210, ubuntu1304, or ubuntu1310\n\nYou can then SSH into the running VM using the `vagrant ssh BOX` command.\n\nThe VM can easily be stopped and deleted with the `vagrant destroy` command. Please see the official [Vagrant documentation](http://docs.vagrantup.com/v2/cli/index.html) for a more in depth explanation of available commands.\n\n## Contributing\n\nPlease use standard Github issues/pull requests and if possible, in combination with testing on the Vagrant boxes.\n\n## Maintainers\n\n* Brian Flad (<bflad417@gmail.com>)\n\n## License\n\nPlease see licensing information in: [LICENSE](LICENSE)\n\n",
+  "maintainer": "Brian Flad",
+  "maintainer_email": "bflad417@gmail.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "amazon": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0"
+  },
+  "dependencies": {
+    "apt": ">= 0.0.0",
+    "freebsd": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "wkhtmltopdf": "Installs wkhtmltoimage and wkhtmltopdf",
+    "wkhtmltopdf::binary": "Installs wkhtmltoimage and wkhtmltopdf binaries",
+    "wkhtmltopdf::source": "Installs wkhtmltoimage and wkhtmltopdf from source"
+  },
+  "version": "0.3.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

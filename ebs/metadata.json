@@ -1,0 +1,43 @@
+{
+  "name": "ebs",
+  "description": "Mounts attached EBS volumes",
+  "long_description": "",
+  "maintainer": "AWS OpsWorks",
+  "maintainer_email": "YOUR_EMAIL",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "ebs::volumes": "Mounts attached EBS volumes",
+    "ebs::raids": "Mounts attached EBS RAIDs"
+  },
+  "version": "1.0.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

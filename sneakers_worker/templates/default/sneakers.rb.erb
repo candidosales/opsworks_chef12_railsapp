@@ -1,0 +1,8 @@
+require 'sneakers'
+Sneakers.configure( <% @vars.each do |key, value| %>
+                    <%= key.to_s %>: <%= value %>,
+                    <% end %>
+                    daemonize: true,
+                    pid_path: '<%= @deploy_to_path %>/shared/pids/sneakers.pid',
+                    log: 'log/sneakers.log'
+)

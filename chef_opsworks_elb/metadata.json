@@ -1,0 +1,43 @@
+{
+  "name": "chef_opsworks_elb",
+  "description": "Provides recipes to register and deregister from elb for an opsworks instance",
+  "long_description": "",
+  "maintainer": "CrowdMob Inc.",
+  "maintainer_email": "developers@crowdmob.com",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "chef_opsworks_elb::register": "Registers instances with ELB",
+    "chef_opsworks_elb::deregister": "De-registers instances with ELB"
+  },
+  "version": "0.0.2",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

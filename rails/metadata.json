@@ -1,0 +1,86 @@
+{
+  "name": "rails",
+  "description": "Installs Rails",
+  "long_description": "",
+  "maintainer": "AWS OpsWorks",
+  "maintainer_email": "YOUR_EMAIL",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "apache2": ">= 0.0.0",
+    "deploy": ">= 0.0.0",
+    "nginx": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "rails": {
+      "display_name": "Rails",
+      "description": "Hash of Rails attributes",
+      "type": "hash",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "rails/version": {
+      "display_name": "Rails Version",
+      "description": "Specify the version of Rails to install",
+      "default": "false",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "rails/max_pool_size": {
+      "display_name": "Rails Max Pool Size",
+      "description": "Specify the MaxPoolSize in the Apache vhost",
+      "default": "4",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "rails::configure": "Re-configure a Rails application"
+  },
+  "version": "1.0.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

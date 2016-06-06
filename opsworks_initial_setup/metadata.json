@@ -1,0 +1,44 @@
+{
+  "name": "opsworks_initial_setup",
+  "description": "Initial Setup for EC2 instances",
+  "long_description": "",
+  "maintainer": "AWS OpsWorks",
+  "maintainer_email": "YOUR_EMAIL",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "opsworks_commons": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "opsworks_initial_setup::sysctl": "Sets some sysctls to improve network performance",
+    "opsworks_initial_setup::bind_mounts": "Set up some bind mounts for apps, logs & co"
+  },
+  "version": "1.0.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

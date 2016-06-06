@@ -1,0 +1,43 @@
+{
+  "name": "ssh_users",
+  "description": "Create system users for OpsWorks users with personal SSH keys",
+  "long_description": "",
+  "maintainer": "AWS OpsWorks",
+  "maintainer_email": "YOUR_EMAIL",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "opsworks_commons": ">= 0.0.0",
+    "opsworks_initial_setup": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "1.0.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

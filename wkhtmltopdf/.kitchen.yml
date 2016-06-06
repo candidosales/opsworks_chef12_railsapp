@@ -1,0 +1,96 @@
+---
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: '11.16.4'
+
+platforms:
+- name: centos5
+  driver_config:
+    customize:
+      memory: 1024
+    box: opscode-centos-5.11
+    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-5.11_chef-provisionerless.box
+    hostname: wkhtmltopdf-centos-5
+- name: centos6
+  driver_config:
+    customize:
+      memory: 1024
+    box: opscode-centos-6.6
+    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.6_chef-provisionerless.box
+    hostname: wkhtmltopdf-centos-6
+- name: centos7
+  driver_config:
+    customize:
+      memory: 1024
+    box: opscode-centos-7.0
+    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-7.0_chef-provisionerless.box
+    hostname: wkhtmltopdf-centos-7
+- name: debian7
+  driver_config:
+    customize:
+      memory: 1024
+    box: opscode-debian-7.7
+    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_debian-7.7_chef-provisionerless.box
+    hostname: wkhtmltopdf-debian-7
+- name: fedora18
+  driver_config:
+    customize:
+      memory: 1024
+    box: opscode-fedora-18
+    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_fedora-18_chef-provisionerless.box
+    hostname: wkhtmltopdf-fedora-18
+- name: fedora19
+  driver_config:
+    customize:
+      memory: 1024
+    box: opscode-fedora-19
+    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_fedora-19_chef-provisionerless.box
+    hostname: wkhtmltopdf-fedora-19
+- name: fedora20
+  driver_config:
+    customize:
+      memory: 1024
+    box: opscode-fedora-20
+    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_fedora-20_chef-provisionerless.box
+    hostname: wkhtmltopdf-fedora-20
+- name: freebsd9
+  driver_config:
+    customize:
+      memory: 1024
+    box: opscode-freebsd-9.2
+    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_freebsd-9.2_chef-provisionerless.box
+    hostname: wkhtmltopdf-freebsd-9
+- name: freebsd10
+  driver_config:
+    customize:
+      memory: 1024
+    box: opscode-freebsd-10.1
+    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_freebsd-10.1_chef-provisionerless.box
+    hostname: wkhtmltopdf-freebsd-10
+- name: ubuntu1204
+  driver_config:
+    customize:
+      memory: 1024
+    box: opscode-ubuntu-12.04
+    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-12.04_chef-provisionerless.box
+    hostname: wkhtmltopdf-ubuntu-1204
+- name: ubuntu1404
+  driver_config:
+    customize:
+      memory: 1024
+    box: opscode-ubuntu-14.04
+    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box
+    hostname: wkhtmltopdf-ubuntu-1404
+
+suites:
+- name: default
+  run_list: ["recipe[wkhtmltopdf]"]
+- name: source
+  run_list: ["recipe[wkhtmltopdf]"]
+  attributes:
+    wkhtmltopdf:
+      install_method: source
+      lib_dir: /usr/local/lib
+      build_cache_path: /var/cache/chef/wkhtmltopdf
+  excludes:
+  - centos5 # Python < 2.5

@@ -1,0 +1,47 @@
+{
+  "name": "opsworks_ecs",
+  "description": "Support for ECS",
+  "long_description": "",
+  "maintainer": "AWS OpsWorks",
+  "maintainer_email": "YOUR_EMAIL",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "opsworks_ecs::setup": "Install Amazon ECS agent.",
+    "opsworks_ecs::shutdown": "Remove Amazon ECS agent and docker.",
+    "opsworks_ecs::cleanup": "Remove Amazon ECS agent and docker.",
+    "opsworks_ecs::deploy": "not implemented",
+    "opsworks_ecs::undeploy": "not implemented",
+    "opsworks_ecs::configure": "not implemented"
+  },
+  "version": "1.0.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

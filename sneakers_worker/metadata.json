@@ -1,0 +1,42 @@
+{
+  "name": "sneakers_worker",
+  "description": "Configures sneakers_worker for use with monit",
+  "long_description": "sneakers_worker Cookbook\n====================\nConfigures sneakers_worker to work with monit.\n\nAdapted from delayed_job https://github.com/freerunningtech/frt-opsworks-cookbooks. Thankyou\n\nRequirements\n------------\n\nYour Gemfile will require:\n\n```ruby\ngem 'sneakers'\ngem 'daemons'\n```\n                               Process control\n================================================================================\nStop (nicely) ..............: kill -SIGTERM `cat sneakers.pid`\nStop (immediate) ...........: kill -SIGQUIT `cat sneakers.pid`\nRestart (nicely) ...........: kill -SIGUSR1 `cat sneakers.pid`\nRestart (immediate) ........: kill -SIGHUP `cat sneakers.pid`\nReconfigure ................: kill -SIGUSR2 `cat sneakers.pid`\nScale workers ..............: reconfigure, then restart\n================================================================================\n\n\nOpsworks Usage\n--------------\n\nSimply add the `sneakers_worker::deploy` recipe to your deploy step.\n\nThis recipe generates the monit configuration in\n`/etc/monit.d/APPLICATION_sneakers_worker.monitrc`, whenever this file changes, any\nexisting sneakers_worker process is stopped.\n\nOn each run `sneakers_worker` is restarted through monit.\n\nStack Settings\n--------------\n\nDelayed Job is configured through stack settings. Here are a few example\nconfigurations.\n\nTwo processes running all queues.\n\n```\n{\n  \"deploy\": {\n    \"myapp\": {\n      \"sneakers_worker\": [{\n        \"options\": \"\"\n      }],\n```\n\nTwo processes running jobs of different priorities\n\n```\n{\n  \"deploy\": {\n    \"myapp\": {\n      \"sneakers_worker\": [\n        {\n          \"identifier\": \"normal\",\n          \"options\": \"--min-priority 0\"\n        },\n        {\n          \"identifier\": \"priority\",\n          \"options\": \"--max-priority -1\"\n        }\n      ]\n```\n\n\nTwo processes running jobs in different queues\n\n```\n{\n  \"deploy\": {\n    \"myapp\": {\n      \"sneakers_worker\": [\n        {\n          \"options\": \"--queue=priority\"\n        },\n        {\n          \"options\": \"--queues=mail,tasks\"\n        }\n      ]\n```\n\nModified to:\n\n```\n{\n  \"deploy\": {\n    \"myapp\": {\n      \"sneakers_worker\": [\"Worker1\", \"Worker2\"]\n    }\n  }\n}\n\n```\n\nRemember to symlink\n\n```\n{\n  \"config/sneakers.rb\": \"config/initializers/sneakers.rb\"\n}\n```\n",
+  "maintainer": "AbleTech",
+  "maintainer_email": "info@abletech.nz",
+  "license": "All rights reserved",
+  "platforms": {
+  },
+  "dependencies": {
+    "deploy": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.1.1",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "deploy",
+  "description": "Deploy applications",
+  "long_description": "",
+  "maintainer": "AWS OpsWorks",
+  "maintainer_email": "YOUR_EMAIL",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "dependencies": ">= 0.0.0",
+    "scm_helper": ">= 0.0.0",
+    "apache2": ">= 0.0.0",
+    "mod_php5_apache2": ">= 0.0.0",
+    "nginx": ">= 0.0.0",
+    "ssh_users": ">= 0.0.0",
+    "opsworks_agent_monit": ">= 0.0.0",
+    "passenger_apache2": ">= 0.0.0",
+    "unicorn": ">= 0.0.0",
+    "opsworks_java": ">= 0.0.0",
+    "php": ">= 0.0.0",
+    "mysql": ">= 0.0.0",
+    "opsworks_postgresql": ">= 0.0.0",
+    "opsworks_nodejs": ">= 0.0.0",
+    "opsworks_aws_flow_ruby": ">= 0.0.0",
+    "install_ruby": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "deploy::aws-flow-ruby": "Deploy an AWS Flow Ruby application",
+    "deploy::rails": "Deploy a Rails application",
+    "deploy::php": "Deploy a PHP application",
+    "deploy::rails-undeploy": "Remove a Rails application",
+    "deploy::mysql": "Create the MySQL database for an app",
+    "deploy::java": "Deploy a Java application"
+  },
+  "version": "1.0.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

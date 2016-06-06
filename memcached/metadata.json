@@ -1,0 +1,87 @@
+{
+  "name": "memcached",
+  "description": "Installs Memcached",
+  "long_description": "",
+  "maintainer": "AWS OpsWorks",
+  "maintainer_email": "YOUR_EMAIL",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "opsworks_agent_monit": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "memcached/memory": {
+      "display_name": "Memcached Memory",
+      "description": "Memory allocated for memcached instance",
+      "default": "512",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "memcached/port": {
+      "display_name": "Memcached Port",
+      "description": "Port to use for memcached instance",
+      "default": "11211",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "memcached/user": {
+      "display_name": "Memcached User",
+      "description": "User to run memcached instance as",
+      "default": "nobody",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "memcached::server": "Memcached server",
+    "memcached::ruby": "Memcached Ruby client libraries",
+    "memcached::php": "Memcached PHP client libraries"
+  },
+  "version": "1.0.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

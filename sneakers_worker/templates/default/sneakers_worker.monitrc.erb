@@ -1,0 +1,7 @@
+<% syslog = "2>&1 | logger -t #{@app}_sneakers_worker"  %>
+check process <%= @app %>_sneakers_worker with pidfile <%= @dir %>/shared/pids/sneakers.pid
+start program = "/bin/su -c 'cd <%= @dir %>/current; /usr/bin/env RAILS_ENV=<%= @env %> WORKERS=<%= @workers %> bundle exec rake sneakers:run <%= syslog %>' - <%= @user %>"
+    with timeout 30 seconds
+    stop program = "/bin/su -c '/usr/bin/env kill -SIGTERM `cat <%= @dir %>/shared/pids/sneakers.pid`' - <%= @user %>"
+    with timeout 30 seconds
+  group sneakers_worker

@@ -1,0 +1,112 @@
+{
+  "name": "dependencies",
+  "description": "Install .gem and .deb depencencies",
+  "long_description": "",
+  "maintainer": "AWS OpsWorks",
+  "maintainer_email": "YOUR_EMAIL",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "ruby": ">= 0.0.0",
+    "gem_support": ">= 0.0.0",
+    "packages": ">= 0.0.0",
+    "opsworks_nodejs": ">= 0.0.0",
+    "install_ruby": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "dependencies/gems": {
+      "display_name": "Gems to install",
+      "description": "A list of Rubygems to install",
+      "required": "optional",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "recipes": [
+
+      ]
+    },
+    "dependencies/debs": {
+      "display_name": "Debian packages to install",
+      "description": "A list of Debian packages (.deb) to install",
+      "required": "optional",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "recipes": [
+
+      ]
+    },
+    "dependencies/update_debs": {
+      "display_name": "Update sources",
+      "description": "Update sources using apt-get update",
+      "required": "optional",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "recipes": [
+
+      ]
+    },
+    "dependencies/upgrade_debs": {
+      "display_name": "Update packages",
+      "description": "Update packages using apt-get upgrade",
+      "required": "optional",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "recipes": [
+
+      ]
+    },
+    "dependencies/upgrade_gems": {
+      "display_name": "Update gems",
+      "description": "Update gems using gem update",
+      "required": "optional",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "recipes": [
+
+      ]
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "dependencies::update": "Update all packages and gems"
+  },
+  "version": "1.0.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

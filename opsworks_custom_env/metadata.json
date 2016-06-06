@@ -1,0 +1,44 @@
+{
+  "name": "opsworks_custom_env",
+  "description": "Writes a config/application.yml file with custom ENV values to apps' deploy directories.",
+  "long_description": "",
+  "maintainer": "Artsy",
+  "maintainer_email": "YOUR_EMAIL",
+  "license": "none",
+  "platforms": {
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "opsworks_custom_env::configure": "Write custom configuration and notify rails application to restart upon changes.",
+    "opsworks_custom_env::restart_command": "Helper recipe that defines command to restart rails application.",
+    "opsworks_custom_env::write_config": "Write a config/application.yml file to app's deploy directory. Used by configure recipe, or can be used directly in custom situations."
+  },
+  "version": "0.3.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

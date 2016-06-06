@@ -1,0 +1,46 @@
+{
+  "name": "opsworks_rabbitmq",
+  "description": "Wrapper cookbook for installing and configuring RabbitMQ on AWS OpsWorks instances",
+  "long_description": "# opsworks_rabbitmq\n\n[![Build Status](https://travis-ci.org/verdigris-cookbooks/opsworks-rabbitmq.svg)](https://travis-ci.org/verdigris-cookbooks/opsworks-rabbitmq)\n\nThis is a wrapper cookbook which utilizes the [rabbitmq cookbook](https://github.com/jjasghar/rabbitmq)\nfor installing [RabbitMQ](https://www.rabbitmq.com/) on AWS OpsWorks with\nsupport for automatic clustering from layer instances.\n\nThe recipes included in this cookbook is based on the recipes provided by\nthe community [rabbitmq cookbook](https://github.com/jjasghar/rabbitmq) with\nmodifications which provide better recipe granularity for AWS OpsWorks lifecycle\nevents. For all intents and purposes, it is very similar to the original\ncookbook.\n\n## Requirements\n\n### Platforms\n\n* Amazon Linux\n* Ubuntu 12.04 LTS\n* Ubuntu 14.04 LTS\n\n### Cookbooks\n\n* **erlang** (≥ 0.9)\n* **rabbitmq** (≥ 3.7)\n\n## Attributes\n\n| Key                                           |  Type  | Description                                                       | Default       |\n|:----------------------------------------------|:------:|:------------------------------------------------------------------|:--------------|\n| `['rabbitmq']['opsworks']['layer_name']`      | String | OpsWorks stack's layer shortname that contains RabbitMQ instances | `\"rabbitmq\"`  |\n\n## Recipes\n\nMost of the recipes included by this cookbook used to be in `rabbitmq::default`\non the original [rabbitmq cookbook](https://github.com/jjasghar/rabbitmq). They\nhave been mostly broken up into two recipes to be executed during AWS OpsWorks\ninstance lifecycle events.\n\n### opsworks_rabbitmq::install\n\nInstalls **[RabbitMQ](https://www.rabbitmq.com)**.\n\nConfigure your stack layer to run `opsworks_rabbitmq::install` during **Setup**\nlifecycle event in your layer instances.\n\n### opsworks_rabbitmq::configure\n\nSets up directory permissions and generate configuration files from templates.\nIf clustering is enabled, it will also run `opsworks_rabbitmq::cluster` recipe.\n\nConfigure your stack layer to run `opsworks_rabbitmq::configure` during\n**Configure** lifecycle event in your layer instances. See [below](#opsworks_rabbitmqcluster)\nfor more information on why.\n\n> **NOTE:** When clustering is *disabled*, it should not matter whether this\nrecipe is configured to run during **Setup** or **Configure** lifecycle event\nas long as it runs after `rabbitmq::install` recipe.\n\n### opsworks_rabbitmq::cluster\n\nAutomatically gathers all instances in your stack layer and automatically\ngenerates the `node['rabbitmq']['cluster_disk_nodes']` list required for\nclustering setup in `opsworks_rabbitmq::configure`.\n\nBecause the list of nodes needs to be updated when a layer instance goes online\nor shuts down, this recipe must run during **Configure** lifecycle event in\nyour layer instances.\n\n### opsworks_rabbitmq::policy_management\n\nEnables any policies listed in the `node['rabbitmq'][policies]` and disables any\nlisted in `node['rabbitmq'][disabled_policies]` attributes.\n\nThis recipe should be used to set up [High Availability queues](https://www.rabbitmq.com/ha.html)\nin RabbitMQ.\n\n**Example Custom JSON:**\n\n```json\n{\n  \"rabbitmq\": {\n    \"policies\": {\n      \"ha-all-queues\": {\n        \"pattern\": \".*\",\n        \"params\": { \"ha-mode\": \"all\" },\n        \"priority\": 0\n      }\n    }\n  }\n}\n```\n\nThis recipe may be executed any time after `opsworks_rabbitmq::install` recipe.\nIt will automatically execute `opsworks_rabbitmq::configure` recipe if it has\nnot run before.\n\n### opsworks_rabbitmq::user_management\n\nEnables any users listed in the `node['rabbitmq']['enabled_users]` and disables\nany listed in `node['rabbitmq'][disabled_users]` attributes.\n\n### opsworks_rabbitmq::virtualhost_management\n\nEnables any vhosts listed in the `node['rabbitmq'][virtualhosts]` and disables\nany listed in `node['rabbitmq'][disabled_virtualhosts]` attributes.\n\n## License\n\nThis cookbook is licensed and distributed under the Simplified BSD license.\nSee [LICENSE](https://github.com/verdigris-cookbooks/opsworks-rabbitmq/blob/master/LICENSE)\nfor more details.\n",
+  "maintainer": "Andrew Jo",
+  "maintainer_email": "andrew@verdigris.co",
+  "license": "Simplified BSD",
+  "platforms": {
+    "amazon": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0"
+  },
+  "dependencies": {
+    "erlang": "~> 1.5.0",
+    "rabbitmq": "~> 3.3.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.3.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

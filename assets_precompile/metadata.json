@@ -1,0 +1,42 @@
+{
+  "name": "assets_precompile",
+  "description": "Precompile assets on deploy",
+  "long_description": "",
+  "maintainer": "Sim Kern Cheh",
+  "maintainer_email": "kern.cheh@gmail.com",
+  "license": "MIT",
+  "platforms": {
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "assets_precompile::deploy": "Run assets precompilation on deployment"
+  },
+  "version": "0.1.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}
