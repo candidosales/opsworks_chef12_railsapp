@@ -14,7 +14,11 @@
 # See also: http://docs.aws.amazon.com/opsworks/latest/userguide/customizing.html
 ###
 
-layer_name = search('aws_opsworks_layer').first['shortname']
+class AttributeSearch
+  extend Chef::DSL::DataQuery
+end
+
+layer_name = AttributeSearch.search('aws_opsworks_layer').first['shortname']
 normal[:opsworks][:rails_stack][:name] = node[:rails_stack][layer_name][:name] || 'nginx_unicorn'
 
 # Chef::Log.info("********** rails stack name is '#{node[:opsworks][:rails_stack][:name]}' **********")

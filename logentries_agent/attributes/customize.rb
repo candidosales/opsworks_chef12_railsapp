@@ -1,10 +1,15 @@
+class AttributeSearch
+  extend Chef::DSL::DataQuery
+end
+
+
 default['le']['logs_to_follow'] = [
     {name: 'syslog', log: '/var/log/syslog'},
     {name: 'varlog', log: '/var/log/*.log'}
 ]
 
-layer = search('aws_opsworks_layer').first
-app = search('aws_opsworks_app').first
+layer = AttributeSearch.search('aws_opsworks_layer').first
+app = AttributeSearch.search('aws_opsworks_app').first
 
 if !!layer['shortname'] =~ /rails-app/
   default['le']['logs_to_follow'] << {name: layer['shortname'], log: "/srv/www/#{app['shortname']}/shared/log/production.log"}
