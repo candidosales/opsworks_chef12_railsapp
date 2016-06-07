@@ -33,10 +33,9 @@ node[:deploy].each do |application, deploy|
     config_directory = "#{deploy[:deploy_to]}/shared/config"
 
     workers.each do |worker, options|
-      Chef::Log.info("PROCESSING SIDEKIQ WORKER #{worker} #{options}")
 
       # Convert attribute classes to plain old ruby objects
-      config = options[:config] ? options[:config].to_hash : {}
+      config = options['config'] ? options['config'].to_hash : {}
       config.each do |k, v|
         case v
         when Chef::Node::ImmutableArray
@@ -45,8 +44,6 @@ node[:deploy].each do |application, deploy|
           config[k] = v.to_hash
         end
       end
-
-      Chef::Log.info("PROCESSING SIDEKIQ WORKER WITH CONFIG #{config}")
 
       # Generate YAML string
       yaml = YAML::dump(config)
