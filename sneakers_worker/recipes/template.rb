@@ -3,7 +3,7 @@ include_recipe 'deploy'
 
 node[:deploy].each do |application, deploy|
   deploy = node[:deploy][application]
-  layer = search('aws_opsworks_layer').first['shortname']
+  layer = OpsWorks::ResolveLayer.resolve_current_layer(search('aws_opsworks_layer'))['shortname']
 
   template "/etc/monit/conf.d/#{application}_sneakers_worker.monitrc" do
     source 'sneakers_worker.monitrc.erb'

@@ -2,7 +2,7 @@
 # Cookbook Name:: dependencies
 # Recipe:: update
 
-layer = search('aws_opsworks_layer').first
+layer = OpsWorks::ResolveLayer.resolve_current_layer(search('aws_opsworks_layer'))
 
 include_recipe 'opsworks_nodejs' if layer['shortname'] == 'nodejs-app'
 

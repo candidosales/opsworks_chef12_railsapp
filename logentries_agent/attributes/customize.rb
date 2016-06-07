@@ -8,7 +8,7 @@ default['le']['logs_to_follow'] = [
     {name: 'varlog', log: '/var/log/*.log'}
 ]
 
-layer = AttributeSearch.search('aws_opsworks_layer').first
+layer = Opsworks::ResolveLayer.resolve_current_layer(AttributeSearch.search('aws_opsworks_layer'))
 app = AttributeSearch.search('aws_opsworks_app').first
 
 if !!layer['shortname'] =~ /rails-app/

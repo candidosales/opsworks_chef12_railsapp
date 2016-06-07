@@ -1,4 +1,4 @@
-layer = search('aws_opsworks_layer').first
+layer = OpsWorks::ResolveLayer.resolve_current_layer(search('aws_opsworks_layer'))
 
 if %w(rails-app rails-app2 sidekiq recurring mq).include?(layer['shortname']) ||
   (node[:opsworks][:instance][:layers] & (node[:set_env_for] || [])).size > 0

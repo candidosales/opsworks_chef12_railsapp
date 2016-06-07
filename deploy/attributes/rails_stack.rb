@@ -17,10 +17,10 @@
 class AttributeSearch
   extend Chef::DSL::DataQuery
 end
-layers = layer_name = AttributeSearch.search('aws_opsworks_layer')
-layer_name = AttributeSearch.search('aws_opsworks_layer').first['shortname']
-Chef::Log.info("*** LAYER NAMES ARE #{layers}")
-Chef::Log.info("*** LAYER NAME IS #{layer_name}")
+
+layer = OpsWorks::ResolveLayer.resolve_current_layer(AttributeSearch.search('aws_opsworks_layer'))
+layer_name = layer['shortname']
+Chef::Log.info("*** LAYER NAMES ARE #{layer}")
 normal[:opsworks][:rails_stack][:name] = node[:rails_stack][layer_name][:name] || 'nginx_unicorn'
 
 case node[:opsworks][:rails_stack][:name]

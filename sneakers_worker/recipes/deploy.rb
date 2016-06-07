@@ -10,7 +10,7 @@ node[:deploy].each do |application, deploy|
   Chef::Log.debug("sneakers_worker::deploy application #{application} as it is a worker app")
 
   # Write sneakers.rb initializer
-  layer = search('aws_opsworks_layer').first['shortname']
+  layer = OpsWorks::ResolveLayer.resolve_current_layer(search('aws_opsworks_layer'))['shortname']
   template "#{deploy[:deploy_to]}/shared/config/sneakers.rb" do
     source 'sneakers.rb.erb'
     owner deploy[:user]

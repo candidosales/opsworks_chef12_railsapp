@@ -3,9 +3,7 @@ define :opsworks_deploy do
   deploy = params[:deploy_data]
   app_data_bag = search('aws_opsworks_app').first
   app_source = app_data_bag['app_source']
-  layer = search('aws_opsworks_layer').first
-  layers = search('aws_opsworks_layer')
-  Chef::Log.info("*** LAYER NAMES ARE #{layers}")
+  layer = OpsWorks::ResolveLayer.resolve_current_layer(search('aws_opsworks_layer'))
 
   directory "#{deploy[:deploy_to]}" do
     group deploy[:group]
