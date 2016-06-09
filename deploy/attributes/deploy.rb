@@ -74,9 +74,9 @@ node[:deploy].each do |application, deploy|
   default[:deploy][application][:migrate] = false
 
   if node[:deploy][application][:auto_bundle_on_deploy]
-    default[:deploy][application][:migrate_command] = "if [ -f Gemfile ]; then echo 'OpsWorks: Gemfile found - running migration with bundle exec' && /usr/local/bin/bundle exec #{node[:deploy][application][:rake]} db:migrate; else echo 'OpsWorks: no Gemfile - running plain migrations' && #{node[:deploy][application][:rake]} db:migrate; fi"
+    default[:deploy][application][:migrate_command] = "if [ -f Gemfile ]; then echo 'OpsWorks: Gemfile found - running migration with bundle exec' && RAILS_ENV=#{node[:deploy][application][:rails_env]} && /usr/local/bin/bundle exec #{node[:deploy][application][:rake]} db:migrate; else echo 'OpsWorks: no Gemfile - running plain migrations' && #{node[:deploy][application][:rake]} db:migrate; fi"
   else
-    default[:deploy][application][:migrate_command] = "#{node[:deploy][application][:rake]} db:migrate"
+    default[:deploy][application][:migrate_command] = "RAILS_ENV=#{node[:deploy][application][:rails_env]} #{node[:deploy][application][:rake]} db:migrate"
   end
   default[:deploy][application][:rails_env] = 'production'
   default[:deploy][application][:action] = 'deploy'
