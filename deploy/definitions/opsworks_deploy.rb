@@ -126,7 +126,7 @@ define :opsworks_deploy do
             adapter: rds_db_instance[:engine] == 'postgres' ? 'postgresql' : rds_db_instance[:engine],
             username: rds_db_instance[:db_user],
             password: rds_db_instance[:db_password]
-          }.merge(node[:deploy][application][:database])
+          }.merge(node[:deploy][application][:database].symbolize_keys)
 
           Chef::Log.info("COMBINED DB VAR #{combined_db_variable}")
 
