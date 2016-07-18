@@ -18,7 +18,7 @@ default['le']['logs_to_follow'] = [
 layer = AttributeSearch.resolve_current_layer(AttributeSearch.search('aws_opsworks_layer'))
 app = AttributeSearch.search('aws_opsworks_app').first
 
-if !!layer['shortname'] =~ /rails-app/
+if layer['shortname'] =~ /rails-app/
   default['le']['logs_to_follow'] << {name: layer['shortname'], log: "/srv/www/#{app['shortname']}/shared/log/production.log"}
 end
 
